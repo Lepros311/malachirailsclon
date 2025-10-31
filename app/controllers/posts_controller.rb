@@ -4,6 +4,16 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all
+
+    if params[:query].present?
+      query = "%#{params[:query]}%"
+      @posts = @posts.where("title ILIKE ? OR description ILIKE ?", query, query)
+    end
+
+    respond_to do |format|
+      format.html
+      format.turbo_stream { render partial: "posts/posts_list", locals: { posts: @posts } }
+    end
   end
 
   # GET /posts/1 or /posts/1.json
@@ -60,7 +70,7 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params.expect(:id))
+      @post = Post.friendly.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.

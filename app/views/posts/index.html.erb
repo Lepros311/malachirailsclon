@@ -2,15 +2,6 @@
 
 <% content_for :title, "Posts" %>
 
-<h1>Posts</h1>
-
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
+<div id="posts" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8">
+<%= render partial: "post_list", locals: {posts: @posts}%>
 </div>
-
-<%= link_to "New post", new_post_path %>
