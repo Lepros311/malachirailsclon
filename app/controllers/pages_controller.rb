@@ -8,4 +8,7 @@ class PagesController < ApplicationController
 
   def privacy
   end
+
+  def profile
+  end
 end
