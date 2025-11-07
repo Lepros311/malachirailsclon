@@ -23,7 +23,10 @@ gem "jbuilder"
 # CUSTOM GEMS
 gem "friendly_id", "~> 5.5", ">= 5.5.1"
 gem "faker"
+
+gem "omniauth-google-oauth2"
 gem "omniauth-github"
+gem "omniauth"
 gem "omniauth-rails_csrf_protection"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
