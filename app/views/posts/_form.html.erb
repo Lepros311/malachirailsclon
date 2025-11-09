@@ -16,9 +16,14 @@
     <%= form.text_field :title %>
   </div>
 
+  <div class="field">
+    <%= form.label :category_ids, "Categories" %>
+    <%= form.collection_select :category_ids, Category.all, :id, :name, {}, multiple: true %>
+  </div>
+
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.textarea :description %>
+    <%= form.rich_text_area :description %>
   </div>
 
   <div>

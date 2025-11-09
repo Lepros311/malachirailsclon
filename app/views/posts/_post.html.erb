@@ -10,6 +10,15 @@
   </div>
 
   <div>
+    <strong>Categories:</strong>
+    <% if post.categories.any? %>
+      <%= post.categories.map(&:name).to_sentence %>
+    <% else %>
+      NONE
+    <% end %>
+  </div>
+
+  <div>
     <strong>Thumbnail url:</strong>
     <%= post.thumbnail_url %>
   </div>

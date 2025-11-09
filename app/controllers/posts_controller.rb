@@ -15,6 +15,14 @@ class PostsController < ApplicationController
       format.html
       format.turbo_stream { render partial: "posts/posts_list", locals: { posts: @posts } }
     end
+
+    if params[:category_id].present?
+      @posts = Post.joins(:categories).where(categories: { id: params[:category_id] }).distinct
+    else
+      @posts = Post.all
+    end
+
+    @categories = Category.all
   end
 
   def ensure_admin_user
@@ -82,6 +90,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.expect(post: [ :title, :description, :thumbnail_url, :video_url, :pro ])
+      params.expect(post: [ :title, :description, :thumbnail_url, :video_url, :pro, category_ids: [] ])
     end
 end

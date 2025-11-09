@@ -48,7 +48,6 @@ Category.create!([
   { name: "DevOps" }
 ])
 
-
 puts "Email: #{Rails.application.credentials.dig(:admin, :email).inspect}"
 
 admin_email = Rails.application.credentials.dig(:admin, :email)
