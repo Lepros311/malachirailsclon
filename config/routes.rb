@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get "pages/privacy"
   get "profile" => "pages#profile"
   resources :posts
+
+  post "create_checkout_session", to: "pages#create_checkout_session"
+  get "subscription_success", to: "pages#subscription_success"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

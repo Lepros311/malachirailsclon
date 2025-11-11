@@ -23,6 +23,7 @@ gem "jbuilder"
 # CUSTOM GEMS
 gem "friendly_id", "~> 5.5", ">= 5.5.1"
 gem "faker"
+gem "stripe"
 
 gem "omniauth-google-oauth2"
 gem "omniauth-github"
